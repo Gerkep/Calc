@@ -6,6 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import pl.gerkeprojects.calcinjava.logic.Main;
+
+import java.util.Scanner;
 
 public class MainController {
 
@@ -72,11 +75,15 @@ public class MainController {
     @FXML
     private Button equalsButton;
 
+    Main main = new Main();
+    Scanner scanner = new Scanner(System.in);
+
 public void initialize(){
     setTextFields();
     display();
     transferAbove();
     allClear();
+    action();
 }
 public void setTextFields(){
     TextField textCurrent = current;
@@ -117,6 +124,10 @@ public void allClear(){
 }
 public void action(){
     equalsButton.setOnAction(event -> {
+        Double a = Double.parseDouble(previous.getText().substring(previous.getText().length()));//zwrócić double ze stringa bez ostatniej litery
+        String operator = previous.getText().substring(previous.getText().length() - 1);
+        Double b = Double.parseDouble(current.getText());
+        main.calculate(a, operator, b);
     });
 }
 public void buttonsSettings(Button button) {
