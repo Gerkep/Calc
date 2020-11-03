@@ -124,10 +124,12 @@ public void allClear(){
 }
 public void action(){
     equalsButton.setOnAction(event -> {
-        Double a = Double.parseDouble(previous.getText().substring(previous.getText().length()));//zwrócić double ze stringa bez ostatniej litery
+        String prevNum = previous.getText().substring(0, previous.getText().length() - 1);//zwrócić double ze stringa bez ostatniej litery
+        Double a = Double.parseDouble(prevNum);
         String operator = previous.getText().substring(previous.getText().length() - 1);
         Double b = Double.parseDouble(current.getText());
-        main.calculate(a, operator, b);
+        previous.setText("");
+        current.setText(String.valueOf(main.calculate(a, operator, b)));
     });
 }
 public void buttonsSettings(Button button) {

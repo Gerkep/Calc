@@ -3,7 +3,7 @@ package pl.gerkeprojects.calcinjava.logic;
 public class Main {
     private static final String PLUS = "+";
     private static final String MINUS = "-";
-    private static final String MULTIPLY = "*";
+    private static final String MULTIPLY = "X";
     private static final String DIVIDE = "/";
 
     public double calculate(double a, String operator, double b) {
