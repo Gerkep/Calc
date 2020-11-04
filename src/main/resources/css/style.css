@@ -1,0 +1,19 @@
+.button{
+-fx-font-style: italic;
+}
+#hBox{
+    -fx-background-color: linear-gradient(to right, deepskyblue, white);
+}
+.text-field{
+  -fx-font-style: italic;
+    -fx-background-color: linear-gradient(to right, deepskyblue, white);
+}
+#current{
+    -fx-font-size: 30px;
+    -fx-font-weight: 5px;
+}
+#previous{
+    -fx-text-fill: gray;
+    -fx-font-weight: 7px;
+    -fx-font-size: 15px;
+}
