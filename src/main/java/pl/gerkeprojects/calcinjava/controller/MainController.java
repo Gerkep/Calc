@@ -102,13 +102,14 @@ public void display(){
     buttonsSettings(sevenButton);
     buttonsSettings(eightButton);
     buttonsSettings(nineButton);
-    buttonsSettings(commaButton);
     buttonsSettings(equalsButton);
     buttonsSettings(substractButton);
     buttonsSettings(multiplyButton);
     buttonsSettings(addButton);
     buttonsSettings(divideButton);
-    buttonsSettings(signButton);
+    commaButton.setOnAction(event -> {
+        current.appendText(".");
+    });
 }
 public void transferAbove(){
     transfer(substractButton);
