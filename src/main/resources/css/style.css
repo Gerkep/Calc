@@ -1,5 +1,7 @@
 .button{
 -fx-font-style: italic;
+    -fx-background-color: linear-gradient(to right, white, blueviolet);
+    -fx-font-size: 22px;
 }
 #hBox{
     -fx-background-color: linear-gradient(to right, deepskyblue, white);
@@ -9,11 +11,14 @@
     -fx-background-color: linear-gradient(to right, deepskyblue, white);
 }
 #current{
-    -fx-font-size: 30px;
+    -fx-font-size: 35px;
     -fx-font-weight: 5px;
 }
 #previous{
     -fx-text-fill: gray;
     -fx-font-weight: 7px;
     -fx-font-size: 15px;
+}
+#substractButton{
+    -fx-font-size: 30px;
 }

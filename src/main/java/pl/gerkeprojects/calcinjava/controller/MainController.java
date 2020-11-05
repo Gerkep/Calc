@@ -7,6 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import pl.gerkeprojects.calcinjava.logic.Main;
+import pl.gerkeprojects.calcinjava.logic.Methods;
 
 import java.util.Scanner;
 
@@ -76,7 +77,7 @@ public class MainController {
     private Button equalsButton;
 
     Main main = new Main();
-    Scanner scanner = new Scanner(System.in);
+    Methods method = new Methods();
 
 public void initialize(){
     setTextFields();
@@ -92,30 +93,30 @@ public void setTextFields(){
     previous.setEditable(false);
 }
 public void display(){
-    buttonsSettings(zeroButton);
-    buttonsSettings(oneButton);
-    buttonsSettings(twoButton);
-    buttonsSettings(threeButton);
-    buttonsSettings(fourButton);
-    buttonsSettings(fiveButton);
-    buttonsSettings(sixButton);
-    buttonsSettings(sevenButton);
-    buttonsSettings(eightButton);
-    buttonsSettings(nineButton);
-    buttonsSettings(equalsButton);
-    buttonsSettings(substractButton);
-    buttonsSettings(multiplyButton);
-    buttonsSettings(addButton);
-    buttonsSettings(divideButton);
+    method.buttonsSettings(zeroButton, current);
+    method.buttonsSettings(oneButton, current);
+    method.buttonsSettings(twoButton, current);
+    method.buttonsSettings(threeButton, current);
+    method.buttonsSettings(fourButton, current);
+    method.buttonsSettings(fiveButton, current);
+    method.buttonsSettings(sixButton, current);
+    method.buttonsSettings(sevenButton, current);
+    method.buttonsSettings(eightButton, current);
+    method.buttonsSettings(nineButton, current);
+    method.buttonsSettings(equalsButton, current);
+    method.buttonsSettings(substractButton, current);
+    method.buttonsSettings(multiplyButton, current);
+    method.buttonsSettings(addButton, current);
+    method.buttonsSettings(divideButton, current);
     commaButton.setOnAction(event -> {
         current.appendText(".");
     });
 }
 public void transferAbove(){
-    transfer(substractButton);
-    transfer(addButton);
-    transfer(multiplyButton);
-    transfer(divideButton);
+    method.transfer(substractButton, previous, current);
+    method.transfer(addButton, previous, current);
+    method.transfer(multiplyButton, previous, current);
+    method.transfer(divideButton, previous, current);
 }
 public void allClear(){
     acButton.setOnAction(event -> {
@@ -131,17 +132,6 @@ public void action(){
         Double b = Double.parseDouble(current.getText());
         previous.setText("");
         current.setText(String.valueOf(main.calculate(a, operator, b)));
-    });
-}
-public void buttonsSettings(Button button) {
-    button.setOnAction(event -> {
-       current.appendText(button.getText());
-    });
-}
-public void transfer(Button button){
-    button.setOnAction(event -> {
-        previous.appendText(current.getText() + button.getText());
-        current.clear();
     });
 }
 }
