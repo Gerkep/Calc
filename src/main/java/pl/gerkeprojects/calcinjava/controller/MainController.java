@@ -85,6 +85,7 @@ public void initialize(){
     transferAbove();
     allClear();
     action();
+    signConfig();
 }
 public void setTextFields(){
     TextField textCurrent = current;
@@ -127,11 +128,21 @@ public void allClear(){
 public void action(){
     equalsButton.setOnAction(event -> {
         String prevNum = previous.getText().substring(0, previous.getText().length() - 1);//zwrócić double ze stringa bez ostatniej litery
-        Double a = Double.parseDouble(prevNum);
+        double a = Double.parseDouble(prevNum);
         String operator = previous.getText().substring(previous.getText().length() - 1);
-        Double b = Double.parseDouble(current.getText());
+        double b = Double.parseDouble(current.getText());
         previous.setText("");
         current.setText(String.valueOf(main.calculate(a, operator, b)));
     });
 }
+public void signConfig(){
+    signButton.setOnAction(event -> {
+        if(current.getText().contains("-")){
+            current.setText(current.getText(1, current.getText().length()));
+        }else {
+            current.setText("-" + current.getText());
+        }
+    });
+}
+
 }
